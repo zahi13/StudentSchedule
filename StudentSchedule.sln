@@ -3,25 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "StudentSchedule", "..\", "{5DC35DD3-1057-450D-8B87-AADA38AD3EDD}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "StudentSchedule", "..\..\..\..\Desktop\StudentSchedule\", "{8C2A49E1-D970-4F78-B9E1-16860F637E1B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_62121"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\StudentSchedule\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62121\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50531"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\StudentSchedule\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50531\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_62121"
-		Release.AspNetCompiler.PhysicalPath = "..\..\StudentSchedule\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62121\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50531"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\StudentSchedule\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50531\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "62121"
-		SlnRelativePath = "..\..\StudentSchedule\"
+		VWDPort = "50531"
+		SlnRelativePath = "..\..\..\..\Desktop\StudentSchedule\"
+		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
 Global
@@ -29,8 +30,8 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5DC35DD3-1057-450D-8B87-AADA38AD3EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DC35DD3-1057-450D-8B87-AADA38AD3EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C2A49E1-D970-4F78-B9E1-16860F637E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C2A49E1-D970-4F78-B9E1-16860F637E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
