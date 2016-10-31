@@ -77,7 +77,7 @@ public partial class AddChore : System.Web.UI.Page
         {
             lbl_ChoreAdded.Text = "Chore was added successfully";
             lbl_ChoreAdded.ForeColor = Color.Green;
-            //reset();
+            reset();
 
             //Response.Redirect("~/UploadReport.aspx");
         }
