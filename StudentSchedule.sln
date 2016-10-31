@@ -1,39 +1,34 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "StudentSchedule", "..\..\..\..\Desktop\StudentSchedule\", "{8C2A49E1-D970-4F78-B9E1-16860F637E1B}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_50531"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\StudentSchedule\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50531\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_50531"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\StudentSchedule\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50531\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "50531"
-		SlnRelativePath = "..\..\..\..\Desktop\StudentSchedule\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C2A49E1-D970-4F78-B9E1-16860F637E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C2A49E1-D970-4F78-B9E1-16860F637E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AddChore.aspx.cs" Inherits="AddChore" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server">
+    <asp:Table class="AddChoreTable" ID="AddChoreTable" runat="server">
+        <asp:TableRow runat="server"> 
+            <asp:TableCell runat="server">Chore Number</asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tbCourseName" type="text" /></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server"> 
+            <asp:TableCell runat="server">Course Name</asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbSemester" type="text" /></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server"> 
+            <asp:TableCell runat="server">Due Date</asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbYear" type="text" /></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server"> 
+            <asp:TableCell runat="server">Submitted</asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbStartDate" type="date" /></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server"> 
+            <asp:TableCell runat="server">Grade</asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbEndDate" type="date" /></asp:TableCell>
+        </asp:TableRow>
+                   
+    </asp:Table>
+            <asp:Button ID="btnSubmitChore" runat="server" Text="Submit Chore" OnClick="SubmitChore"/>
+            <asp:Label runat="server" ID="lbl_ChoreAdded"></asp:Label>
+
+</asp:Content>
+
+
