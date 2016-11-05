@@ -14,8 +14,10 @@
             <div class="wrapper">
                 <div class="menu">
                     <ul>
-                        <li class="navigation_first_item"><a href="AddCourse.aspx">Add Course</a></li>
-                        <li><a href="WeeklySchedule.aspx">Weekly Schedule</a></li>
+                        <li class="navigation_first_item"><a href="WeeklySchedule.aspx">Weekly Schedule</a></li>
+                        <li><a href="AddCourse.aspx">Add Course</a></li>
+                        <li><a href="AddChore.aspx">Add Chore</a></li>
+
                         <li><a runat="server" id="adminPageLink" href="#">Admin Page</a></li>              
                     </ul>
                 </div>

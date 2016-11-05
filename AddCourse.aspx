@@ -43,10 +43,13 @@
         <asp:TableRow runat="server">         
             <asp:TableCell runat="server">Teacher's Phone</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbTeacherPhone" type="text" /></asp:TableCell>
-        </asp:TableRow>              
+        </asp:TableRow> 
+      
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server"><asp:Button ID="btnSubmitCourse" runat="server" Text="Submit Course" OnClick="submitCourses"/></asp:TableCell>
+            <asp:TableCell runat="server"><asp:Label runat="server" ID="lbCourseAdded"></asp:Label></asp:TableCell>
+        </asp:TableRow>                
     </asp:Table>
-            <asp:Button ID="btnSubmitCourse" runat="server" Text="Submit Course" OnClick="submitCourses"/></asp:TableCell>
-            <asp:Label runat="server" ID="lbCourseAdded"></asp:Label>
 
 </asp:Content>
 

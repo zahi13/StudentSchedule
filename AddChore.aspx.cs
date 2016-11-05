@@ -13,35 +13,37 @@ public partial class AddChore : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        DataTable subjects = new DataTable();
-        using (
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString))
+        if (!IsPostBack)
         {
-            try
+            DataTable subjects = new DataTable();
+            using (
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString))
             {
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT courseName FROM Courses", con);
-                adapter.Fill(subjects);
-                dd_courseName.DataSource = subjects;
-                dd_courseName.DataTextField = "courseName";
-                dd_courseName.DataValueField = "courseName";
-                dd_courseName.DataBind();
-            }
-            catch (Exception ex)
-            {
-                ; // Handle the error
-            }
-            finally
-            {
-                con.Close(); //סגירת החיבור
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT courseName FROM Courses", con);
+                    adapter.Fill(subjects);
+                    dd_courseName.DataSource = subjects;
+                    dd_courseName.DataTextField = "courseName";
+                    dd_courseName.DataValueField = "courseName";
+                    dd_courseName.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    ; // Handle the error
+                }
+                finally
+                {
+                    con.Close(); //סגירת החיבור
+                }
             }
         }
-
     }
 
 
     protected void SubmitChore(object sender, EventArgs e)
     {
-        // User s = (User)Session["user"]; //Getting user info from session
+        User s = (User)Session["user"]; //Getting user info from session
 
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
 
@@ -52,7 +54,7 @@ public partial class AddChore : System.Web.UI.Page
                                             @Submitted,
                                             @grade)", con);
 
-        cmd.Parameters.AddWithValue("@studentID", 1);
+        cmd.Parameters.AddWithValue("@studentID", s.studentID);
         cmd.Parameters.AddWithValue("@courseName", dd_courseName.Text);
         cmd.Parameters.AddWithValue("@dueDate", DateTime.Now);
         cmd.Parameters.AddWithValue("@Submitted", DateTime.Now);

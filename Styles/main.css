@@ -119,8 +119,14 @@ input {
 
 }
 
-.AddCourseTable {
+.AddCourseTable{
 	left: 35%;
 	position: relative;
 }
+
+.AddChoreTable{
+	left: 35%;
+	position: relative;
+}
+
 

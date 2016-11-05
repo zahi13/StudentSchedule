@@ -7,9 +7,11 @@
         
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">Course Name</asp:TableCell>
-            <asp:TableCell runat="server"><asp:DropDownList runat="server" id="dd_courseName" AppendDataBoundItems="true">
-                <asp:ListItem Text="choose course" Value="0"/>
-                                          </asp:DropDownList></asp:TableCell>    
+            <asp:TableCell runat="server">
+                <asp:DropDownList runat="server" id="dd_courseName" AppendDataBoundItems="true">
+                    <asp:ListItem Text="choose course" Value="0"/>
+                </asp:DropDownList>
+            </asp:TableCell>    
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">Due Date</asp:TableCell>
@@ -23,10 +25,11 @@
             <asp:TableCell runat="server">Grade</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="txb_grade" type="number" min="0" max="100" value=""/></asp:TableCell>
         </asp:TableRow>
-                   
+        <asp:TableRow runat="server">
+            <asp:TableCell ><asp:Button ID="btnSubmitChore" runat="server" Text="Submit Chore" OnClick="SubmitChore"/></asp:TableCell>
+            <asp:TableCell ><asp:Label runat="server" ID="lbl_ChoreAdded"></asp:Label></asp:TableCell>  
+        </asp:TableRow>
     </asp:Table>
-            <asp:Button ID="btnSubmitChore" runat="server" Text="Submit Chore" OnClick="SubmitChore"/>
-            <asp:Label runat="server" ID="lbl_ChoreAdded"></asp:Label>
 
 </asp:Content>
 
