@@ -55,4 +55,8 @@ MasterPage.master
 .vs/config/applicationhost.config
 *.master
 .vs/StudentSchedule/v14/.suo
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+.vs/StudentSchedule/v14/.suo
 >>>>>>> origin/master

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server">
-    <link href="Styles/tables.css" rel="stylesheet" />
+    <link href="Styles/tables.css" rel="stylesheet" />    
     <asp:Table class="GeneralTable" ID="ViewCoursesTable" runat="server">
         <asp:TableRow runat="server">   
             <asp:TableCell runat="server">Course Name</asp:TableCell>
