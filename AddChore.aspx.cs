@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class AddChore : System.Web.UI.Page
 {
@@ -58,6 +53,11 @@ public partial class AddChore : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@courseName", dd_courseName.Text);
         cmd.Parameters.AddWithValue("@dueDate", DateTime.Now);
         cmd.Parameters.AddWithValue("@Submitted", DateTime.Now);
+
+        if (txb_grade.Text == null || txb_grade.Text == "")
+        {
+            txb_grade.Text = "-1";
+        }
         cmd.Parameters.AddWithValue("@grade", txb_grade.Text);
 
         int res = 0;
