@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+.vs/config/applicationhost.config
+.vs/config/applicationhost.config
+*.master
+.vs/StudentSchedule/v14/.suo
