@@ -23,7 +23,7 @@
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">Grade</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox runat="server" id="txb_grade" type="number" min="0" max="100" value=""/></asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" id="txb_grade" type="number" min="-1" max="100" value=""/></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell ><asp:Button ID="btnSubmitChore" runat="server" Text="Submit Chore" OnClick="SubmitChore"/></asp:TableCell>
