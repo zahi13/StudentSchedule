@@ -14,7 +14,7 @@
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">Year</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbYear" type="text" /></asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbYear" type="date" /></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">Start Date</asp:TableCell>

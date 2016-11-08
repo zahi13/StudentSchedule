@@ -38,64 +38,85 @@ public partial class AddChore : System.Web.UI.Page
 
     protected void SubmitChore(object sender, EventArgs e)
     {
-        User s = (User)Session["user"]; //Getting user info from session
+        if (CheckInputFields())
+        {
+            User s = (User) Session["user"]; //Getting user info from session
 
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
 
-        SqlCommand cmd = new SqlCommand(@"insert into Chores values(
+            SqlCommand cmd = new SqlCommand(@"insert into Chores values(
                                             @studentID,
                                             @courseName,
                                             @dueDate,
                                             @Submitted,
                                             @grade)", con);
 
-        cmd.Parameters.AddWithValue("@studentID", s.studentID);
-        cmd.Parameters.AddWithValue("@courseName", dd_courseName.Text);
-        cmd.Parameters.AddWithValue("@dueDate", DateTime.Now);
-        cmd.Parameters.AddWithValue("@Submitted", DateTime.Now);
+            cmd.Parameters.AddWithValue("@studentID", s.studentID);
+            cmd.Parameters.AddWithValue("@courseName", dd_courseName.Text);
+            cmd.Parameters.AddWithValue("@dueDate", txb_dueDate.Text);
+            cmd.Parameters.AddWithValue("@Submitted", txb_submitted.Text);
 
-        if (txb_grade.Text == null || txb_grade.Text == "")
-        {
-            txb_grade.Text = "-1";
-        }
-        cmd.Parameters.AddWithValue("@grade", txb_grade.Text);
+            if (txb_grade.Text == null || txb_grade.Text == "")
+            {
+                txb_grade.Text = "-1";
+            }
+            cmd.Parameters.AddWithValue("@grade", txb_grade.Text);
 
-        int res = 0;
-        try
-        {
-            con.Open();    //פתיחת חיבור בין האתר לבסיס נתונים
-            res = cmd.ExecuteNonQuery();  //ביצוע השאילתא וקליטת הערך לתוך משתנה        
-        }
-        catch (Exception ex)
-        {
-            res = 0; // Handle the error
-        }
-        finally
-        {
-            con.Close(); //סגירת החיבור
-        }
+            int res = 0;
+            try
+            {
+                con.Open(); //פתיחת חיבור בין האתר לבסיס נתונים
+                res = cmd.ExecuteNonQuery(); //ביצוע השאילתא וקליטת הערך לתוך משתנה        
+            }
+            catch (Exception ex)
+            {
+                res = 0; // Handle the error
+            }
+            finally
+            {
+                con.Close(); //סגירת החיבור
+            }
 
-        if (res > 0)
-        {
-            lbl_ChoreAdded.Text = "Chore was added successfully";
-            lbl_ChoreAdded.ForeColor = Color.Green;
-            reset();
-
-            //Response.Redirect("~/UploadReport.aspx");
-        }
-        else
-        {
-            lbl_ChoreAdded.Text = "Chore was NOT added";
-            lbl_ChoreAdded.ForeColor = Color.Red;
+            if (res > 0)
+            {
+                lbl_ChoreAdded.Text = "Chore was added successfully";
+                lbl_ChoreAdded.ForeColor = Color.Green;
+                ResetInputFields();
+            }
+            else
+            {
+                lbl_ChoreAdded.Text = "Chore was NOT added";
+                lbl_ChoreAdded.ForeColor = Color.Red;
+            }
         }
 
     }
 
-    protected void reset()
+    protected void ResetInputFields()
     {
         dd_courseName.SelectedIndex = 0;
         txb_dueDate.Text = null;
         txb_submitted.Text = null;
         txb_grade.Text = null;
+    }
+
+    private bool CheckInputFields()
+    {
+        bool flag = true;
+
+        if (dd_courseName.Text == "0")
+            flag = false;
+        if (txb_dueDate.Text == "")
+            flag = false;
+        if (txb_submitted.Text == "")
+            flag = false;
+
+        if (flag == false)
+        {
+            lbl_ChoreAdded.Text = "Some input fields are empty";
+            lbl_ChoreAdded.ForeColor = Color.Red;
+            return flag;
+        }
+        return flag;
     }
 }
