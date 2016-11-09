@@ -84,12 +84,12 @@ public partial class AddCourse : System.Web.UI.Page
 
             if (res > 0)
             {
-                lbCourseAdded.Text = "Course was added successfully";
+                lbCourseAdded.Text = "הקורס נוסף בהצלחה";
                 lbCourseAdded.ForeColor = Color.Green;
             }
             else
             {
-                lbCourseAdded.Text = "Course was NOT added";
+                lbCourseAdded.Text = "הקורס לא נוסף";
                 lbCourseAdded.ForeColor = Color.Red;
             }
         }
@@ -104,7 +104,7 @@ public partial class AddCourse : System.Web.UI.Page
         if (tbSemester.Text == "")
             flag = false;
         if (dd_year.Text == "")
-            flag = false;       
+            flag = false;
         if (tbTestA.Text == "")
             flag = false;
         if (tbTestB.Text == "")
@@ -118,7 +118,7 @@ public partial class AddCourse : System.Web.UI.Page
 
         if (flag == false)
         {
-            lbCourseAdded.Text = "Some input fields are empty";
+            lbCourseAdded.Text = "נא למלא את השדות הריקים";
             lbCourseAdded.ForeColor = Color.Red;
             return flag;
         }

@@ -19,7 +19,7 @@
                 var thisRow = $(this);
                 $('td', this).each(function () {
                     var value = $(this).text();
-                    if (i % 5 == 0) {
+                    if (i % 2 == 0) {
                         if (value == "") {// Changing according to grade
                             thisRow.css("background-color", "Red");
                         } else {

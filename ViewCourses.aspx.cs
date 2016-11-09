@@ -88,6 +88,13 @@ public partial class ViewCourses : System.Web.UI.Page
             ViewCoursesTable.Rows.Add(tr);
         }
     }
+
+    protected void AddCourse_OnClick(object sender, EventArgs e)
+    {
+        string url = "AddCourse.aspx";
+        string s = "window.open('" + url + "', 'popup_window', 'width=500,height=900,left=100,top=100,resizable=yes');";
+        ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
+    }
 }
 
 

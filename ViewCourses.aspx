@@ -16,5 +16,5 @@
             <asp:TableCell runat="server">טלפון המרצה</asp:TableCell>
          </asp:TableRow> 
     </asp:Table>
-    <asp:Button ID="Button1" runat="server" Text="הוסף קורס" />
+    <asp:Button ID="AddCourse" runat="server" Text="הוסף קורס" OnClick="AddCourse_OnClick"/>
 </asp:Content>
