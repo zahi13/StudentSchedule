@@ -11,7 +11,7 @@ public partial class ViewChores : System.Web.UI.Page
         User s = (User)Session["user"]; //Getting user info from session
 
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
-        SqlCommand cmd = new SqlCommand(@"SELECT * FROM Courses WHERE studentID = @studentID", con);
+        SqlCommand cmd = new SqlCommand(@"SELECT * FROM Chores WHERE studentID = @studentID", con);
 
         cmd.Parameters.AddWithValue("@studentID", s.studentID);
 
@@ -47,8 +47,8 @@ public partial class ViewChores : System.Web.UI.Page
         {
             TableRow tr = new TableRow();
 
-            TableCell td_choreID = new TableCell();
-            td_choreID.Text = dr["ChoreID"].ToString();
+            TableCell td_choreNum = new TableCell();
+            td_choreNum.Text = dr["choreNum"].ToString();
 
             TableCell td_courseName = new TableCell();
             td_courseName.Text = dr["CourseName"].ToString();
@@ -62,7 +62,7 @@ public partial class ViewChores : System.Web.UI.Page
             TableCell td_grade = new TableCell();
             td_grade.Text = dr["Grade"].ToString();
 
-            tr.Cells.Add(td_choreID);
+            tr.Cells.Add(td_choreNum);
             tr.Cells.Add(td_courseName);
             tr.Cells.Add(td_dueDate);
             tr.Cells.Add(td_submittedDate);
@@ -70,5 +70,12 @@ public partial class ViewChores : System.Web.UI.Page
 
             viewChoresTable.Rows.Add(tr);
         }
+    }
+
+    protected void addChoreWindow_Click(object sender, EventArgs e)
+    {
+        string url = "AddChore.aspx";
+        string s = "window.open('" + url + "', 'popup_window', 'width=500,height=700,left=100,top=100,resizable=yes');";
+        ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
     }
 }

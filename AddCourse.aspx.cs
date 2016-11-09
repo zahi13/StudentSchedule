@@ -13,7 +13,31 @@ public partial class AddCourse : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            DataTable subjects = new DataTable();
+            using (
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString))
+            {
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT year FROM Year", con);
+                    adapter.Fill(subjects);
+                    dd_year.DataSource = subjects;
+                    dd_year.DataTextField = "year";
+                    dd_year.DataValueField = "year";
+                    dd_year.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    ; // Handle the error
+                }
+                finally
+                {
+                    con.Close(); //סגירת החיבור
+                }
+            }
+        }
     }
 
     protected void submitCourses(object sender, EventArgs e)
@@ -28,8 +52,6 @@ public partial class AddCourse : System.Web.UI.Page
                                             @courseName,
                                             @Semester,
                                             @Year,
-                                            @startDate,
-                                            @endDate,
                                             @TestA,
                                             @TestB,
                                             @TeacherName,
@@ -38,9 +60,7 @@ public partial class AddCourse : System.Web.UI.Page
 
             cmd.Parameters.AddWithValue("@courseName", tbCourseName.Text);
             cmd.Parameters.AddWithValue("@Semester", tbSemester.Text);
-            cmd.Parameters.AddWithValue("@Year", tbYear.Text);
-            cmd.Parameters.AddWithValue("@startDate", tbStartDate.Text);
-            cmd.Parameters.AddWithValue("@endDate", tbEndDate.Text);
+            cmd.Parameters.AddWithValue("@Year", dd_year.Text);
             cmd.Parameters.AddWithValue("@TestA", tbTestA.Text);
             cmd.Parameters.AddWithValue("@TestB", tbTestB.Text);
             cmd.Parameters.AddWithValue("@TeacherName", tbTeacherName.Text);
@@ -83,12 +103,8 @@ public partial class AddCourse : System.Web.UI.Page
             flag = false;
         if (tbSemester.Text == "")
             flag = false;
-        if (tbYear.Text == "")
-            flag = false;
-        if (tbStartDate.Text == "")
-            flag = false;
-        if (tbEndDate.Text == "")
-            flag = false;
+        if (dd_year.Text == "")
+            flag = false;       
         if (tbTestA.Text == "")
             flag = false;
         if (tbTestB.Text == "")

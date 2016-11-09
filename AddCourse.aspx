@@ -3,42 +3,46 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server">
-    <asp:Table class="AddCourseTable" ID="AddCourseTable" runat="server">
+    <asp:Table class="AddCourseTable" ID="AddCourseTable" runat="server" dir="rtl">
         <asp:TableRow runat="server"> 
-            <asp:TableCell runat="server">Course Name</asp:TableCell>
+            <asp:TableCell runat="server">שם הקורס</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tbCourseName" type="text" /></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server"> 
-            <asp:TableCell runat="server">Semester</asp:TableCell>
+            <asp:TableCell runat="server">סמסטר</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbSemester" type="text" /></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server"> 
-            <asp:TableCell runat="server">Year</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbYear" type="date" /></asp:TableCell>
-        </asp:TableRow>        
+            <asp:TableCell runat="server">שנה</asp:TableCell>
+            <asp:TableCell runat="server">
+                <asp:DropDownList runat="server" id="dd_year" AppendDataBoundItems="true">
+                    <asp:ListItem Text="תשע&quot;ז" Value="0"/>
+                </asp:DropDownList>
+            </asp:TableCell>    
+        </asp:TableRow>      
         <asp:TableRow runat="server"> 
-            <asp:TableCell runat="server">Test A</asp:TableCell>
+            <asp:TableCell runat="server">מועד א'</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbTestA" type="date" /></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">         
-            <asp:TableCell runat="server">Test B</asp:TableCell>
+            <asp:TableCell runat="server">מועד ב'</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbTestB" type="date" /></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">         
-            <asp:TableCell runat="server">Teacher's Name</asp:TableCell>
+            <asp:TableCell runat="server">שם המרצה</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbTeacherName" type="text" /></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">         
-            <asp:TableCell runat="server">Teacher's eMail</asp:TableCell>
+            <asp:TableCell runat="server">אימייל המרצה</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbTeacherEmail" type="email" /></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">         
-            <asp:TableCell runat="server">Teacher's Phone</asp:TableCell>
+            <asp:TableCell runat="server">טלפון המרצה</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbTeacherPhone" type="text" /></asp:TableCell>
         </asp:TableRow> 
       
         <asp:TableRow runat="server">
-            <asp:TableCell runat="server"><asp:Button ID="btnSubmitCourse" runat="server" Text="Submit Course" OnClick="submitCourses"/></asp:TableCell>
+            <asp:TableCell runat="server"><asp:Button ID="btnSubmitCourse" runat="server" Text="שמור קורס" OnClick="submitCourses"/></asp:TableCell>
             <asp:TableCell runat="server"><asp:Label runat="server" ID="lbCourseAdded"></asp:Label></asp:TableCell>
         </asp:TableRow>                
     </asp:Table>

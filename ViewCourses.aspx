@@ -4,16 +4,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server">
     <link href="Styles/tables.css" rel="stylesheet" />    
-    <asp:Table class="GeneralTable" ID="ViewCoursesTable" runat="server">
+    <asp:Table class="GeneralTable" ID="ViewCoursesTable" runat="server" dir="rtl">
         <asp:TableRow runat="server">   
-            <asp:TableCell runat="server">Course Name</asp:TableCell>
-            <asp:TableCell runat="server">Semester</asp:TableCell>
-            <asp:TableCell runat="server">Year</asp:TableCell>
-            <asp:TableCell runat="server">Test A Date</asp:TableCell>
-            <asp:TableCell runat="server">Test B Date</asp:TableCell>
-            <asp:TableCell runat="server">Lecturer Name</asp:TableCell>
-            <asp:TableCell runat="server">Lecturer Email</asp:TableCell>
-            <asp:TableCell runat="server">Lecturer Phone</asp:TableCell>
+            <asp:TableCell runat="server">שם הקורס</asp:TableCell>
+            <asp:TableCell runat="server">סמסטר</asp:TableCell>
+            <asp:TableCell runat="server">שנה אקדמית</asp:TableCell>
+            <asp:TableCell runat="server">מועד א'</asp:TableCell>
+            <asp:TableCell runat="server">מועד ב'</asp:TableCell>
+            <asp:TableCell runat="server">שם המרצה</asp:TableCell>
+            <asp:TableCell runat="server">אימייל המרצה</asp:TableCell>
+            <asp:TableCell runat="server">טלפון המרצה</asp:TableCell>
          </asp:TableRow> 
     </asp:Table>
+    <asp:Button ID="Button1" runat="server" Text="הוסף קורס" />
 </asp:Content>

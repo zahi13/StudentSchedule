@@ -59,7 +59,7 @@ public partial class ViewCourses : System.Web.UI.Page
             tbSemester.Text = dr["semester"].ToString();
 
             TableCell tbYear = new TableCell();
-            tbYear.Text = Convert.ToDateTime(dr["year"]).ToString("yyyy");
+            tbYear.Text = dr["year"].ToString();
 
             TableCell tbTestA = new TableCell();
             tbTestA.Text = Convert.ToDateTime(dr["testA"]).ToString("MMM.dd,yyyy");

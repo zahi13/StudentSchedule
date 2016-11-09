@@ -14,28 +14,26 @@
     </head>
     <body>
         <form id="form1" runat="server">
-            <div class="wrapper">
-                <div class="menu">
+            <div class="wrapper" dir="rtl">
+                <div class="menu" dir="rtl">
                     <ul>
-                        <li class="navigation_first_item"><a href="WeeklySchedule.aspx">Weekly Schedule</a></li>
-                        <li><a href="AddCourse.aspx">Add Course</a></li>
-                        <li><a href="ViewCourses.aspx">View Courses</a></li>
-                        <li><a href="AddChore.aspx">Add Chore</a></li>
-                        <li><a href="ViewChores.aspx">View Chores</a></li>
+                        <li class="navigation_first_item"><a href="ViewChores.aspx">לוח מטלות</a></li>                       
+                        <li><a href="WeeklySchedule.aspx">לוח שנה</a></li>                        
+                        <li><a href="ViewCourses.aspx">טבלת קורסים</a></li>
 
 <%--                        <li><a runat="server" id="adminPageLink" href="#">Admin Page</a></li>              --%>
                     </ul>
                 </div>
-                <div class="clear"></div>
-                <div class="content">
+                <div class="clear" dir="rtl"></div>
+                <div class="content" dir="rtl">
                     <div class="innerContent">
                         <asp:ContentPlaceHolder ID="contentBody" runat="server">
         
                         </asp:ContentPlaceHolder> 
                     </div>
                 </div>
-                <div class="clear"></div>
-                <div class="footer">
+                <div class="clear" dir="rtl"></div>
+                <div class="footer" dir="rtl">
                     <h2>Copyright@ Ruppin Academic Center</h2>
                 </div>
 

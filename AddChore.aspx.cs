@@ -40,7 +40,7 @@ public partial class AddChore : System.Web.UI.Page
     {
         if (CheckInputFields())
         {
-            User s = (User) Session["user"]; //Getting user info from session
+            User s = (User)Session["user"]; //Getting user info from session
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
 
@@ -49,17 +49,15 @@ public partial class AddChore : System.Web.UI.Page
                                             @courseName,
                                             @dueDate,
                                             @Submitted,
-                                            @grade)", con);
+                                            @grade,
+                                            @choreNum)", con);
 
             cmd.Parameters.AddWithValue("@studentID", s.studentID);
             cmd.Parameters.AddWithValue("@courseName", dd_courseName.Text);
             cmd.Parameters.AddWithValue("@dueDate", txb_dueDate.Text);
             cmd.Parameters.AddWithValue("@Submitted", txb_submitted.Text);
+            cmd.Parameters.AddWithValue("@choreNum", txb_choreNum.Text);
 
-            if (txb_grade.Text == null || txb_grade.Text == "")
-            {
-                txb_grade.Text = "-1";
-            }
             cmd.Parameters.AddWithValue("@grade", txb_grade.Text);
 
             int res = 0;
@@ -79,13 +77,13 @@ public partial class AddChore : System.Web.UI.Page
 
             if (res > 0)
             {
-                lbl_ChoreAdded.Text = "Chore was added successfully";
+                lbl_ChoreAdded.Text = "המטלה נוספה בהצלחה";
                 lbl_ChoreAdded.ForeColor = Color.Green;
                 ResetInputFields();
             }
             else
             {
-                lbl_ChoreAdded.Text = "Chore was NOT added";
+                lbl_ChoreAdded.Text = "המטלה לא נוספה";
                 lbl_ChoreAdded.ForeColor = Color.Red;
             }
         }
@@ -108,12 +106,12 @@ public partial class AddChore : System.Web.UI.Page
             flag = false;
         if (txb_dueDate.Text == "")
             flag = false;
-        if (txb_submitted.Text == "")
+        if (txb_choreNum.Text == "")
             flag = false;
 
         if (flag == false)
         {
-            lbl_ChoreAdded.Text = "Some input fields are empty";
+            lbl_ChoreAdded.Text =" נא למלא שם קורס /תאריך הגשה";
             lbl_ChoreAdded.ForeColor = Color.Red;
             return flag;
         }

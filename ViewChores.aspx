@@ -4,14 +4,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server">
             <asp:Table ID="viewChoresTable" CssClass="viewChoresTable" runat="server">
             <asp:TableHeaderRow runat="server">
-                <asp:TableHeaderCell>Chore ID</asp:TableHeaderCell>
-                <asp:TableHeaderCell>Course Name</asp:TableHeaderCell>
-                <asp:TableHeaderCell>Due Date</asp:TableHeaderCell>
-                <asp:TableHeaderCell>Submitted Date</asp:TableHeaderCell>
-                <asp:TableHeaderCell ID="grade">Grade</asp:TableHeaderCell>
+                <asp:TableHeaderCell>מספר/שם מטלה</asp:TableHeaderCell>
+                <asp:TableHeaderCell>שם הקורס</asp:TableHeaderCell>
+                <asp:TableHeaderCell>תאריך הגשה</asp:TableHeaderCell>
+                <asp:TableHeaderCell>הוגש</asp:TableHeaderCell>
+                <asp:TableHeaderCell ID="grade">ציון</asp:TableHeaderCell>
             </asp:TableHeaderRow>
         </asp:Table>
-    
+    <asp:Button ID="addChoreWindow" runat="server" Text="הוסף מטלה" OnClick="addChoreWindow_Click"/>
     <script>
         var i = 1;
         $(document).ready(function () {
@@ -20,10 +20,10 @@
                 $('td', this).each(function () {
                     var value = $(this).text();
                     if (i % 5 == 0) {
-                        if (value == -1) {// Changing according to grade
+                        if (value == "") {// Changing according to grade
                             thisRow.css("background-color", "Red");
                         } else {
-                            thisRow.css("background-color", "Green");                      
+                            thisRow.css("background-color", "LightGreen");                      
                         }
                     }
                     i++;
