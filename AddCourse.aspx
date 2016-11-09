@@ -15,15 +15,7 @@
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">Year</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbYear" type="date" /></asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow runat="server"> 
-            <asp:TableCell runat="server">Start Date</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbStartDate" type="date" /></asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow runat="server"> 
-            <asp:TableCell runat="server">End Date</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbEndDate" type="date" /></asp:TableCell>
-        </asp:TableRow>
+        </asp:TableRow>        
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">Test A</asp:TableCell>
             <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbTestA" type="date" /></asp:TableCell>

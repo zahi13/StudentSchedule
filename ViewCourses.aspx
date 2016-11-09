@@ -11,7 +11,6 @@
             <asp:TableCell runat="server">Year</asp:TableCell>
             <asp:TableCell runat="server">Test A Date</asp:TableCell>
             <asp:TableCell runat="server">Test B Date</asp:TableCell>
-            <asp:TableCell runat="server">Test C Date</asp:TableCell>
             <asp:TableCell runat="server">Lecturer Name</asp:TableCell>
             <asp:TableCell runat="server">Lecturer Email</asp:TableCell>
             <asp:TableCell runat="server">Lecturer Phone</asp:TableCell>

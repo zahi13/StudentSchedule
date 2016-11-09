@@ -11,7 +11,7 @@ public partial class ViewChores : System.Web.UI.Page
         User s = (User)Session["user"]; //Getting user info from session
 
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
-        SqlCommand cmd = new SqlCommand(@"SELECT * FROM Chores WHERE studentID = @studentID", con);
+        SqlCommand cmd = new SqlCommand(@"SELECT * FROM Courses WHERE studentID = @studentID", con);
 
         cmd.Parameters.AddWithValue("@studentID", s.studentID);
 
@@ -55,7 +55,7 @@ public partial class ViewChores : System.Web.UI.Page
 
             TableCell td_dueDate = new TableCell();
             td_dueDate.Text = Convert.ToDateTime(dr["DueDate"]).ToString("MMM.dd,yyyy");
-   
+
             TableCell td_submittedDate = new TableCell();
             td_submittedDate.Text = Convert.ToDateTime(dr["Submitted"]).ToString("MMM.dd,yyyy");
 
