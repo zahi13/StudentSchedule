@@ -8,6 +8,8 @@ public partial class ViewChores : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        fixDatesToNullInDB();//Changes default dates into NULL in the DB
+
         User s = (User) Session["user"]; //Getting user info from session
 
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
@@ -66,8 +68,7 @@ public partial class ViewChores : System.Web.UI.Page
             {
 
                 td_submittedDate.Text = "";
-            }
-            
+            }  
 
             TableCell td_grade = new TableCell();
             td_grade.Text = dr["Grade"].ToString();
@@ -85,7 +86,30 @@ public partial class ViewChores : System.Web.UI.Page
     protected void addChoreWindow_Click(object sender, EventArgs e)
     {
         string url = "AddChore.aspx";
-        string s = "window.open('" + url + "', 'popup_window', 'width=500,height=700,left=100,top=100,resizable=yes');";
+        string s = "window.open('" + url + "', 'popup_window', 'width=500,height=400,left=100,top=100,resizable=yes');";
         ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
     }
+
+    void fixDatesToNullInDB()
+    {
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
+        SqlCommand cmd = new SqlCommand("UPDATE Chores SET Submitted = null WHERE Submitted = '1900-01-01'", con);
+
+        int res = 0;
+        try
+        {
+            con.Open(); //פתיחת חיבור בין האתר לבסיס נתונים
+            res = cmd.ExecuteNonQuery(); //ביצוע השאילתא וקליטת הערך לתוך משתנה        
+        }
+        catch (Exception ex)
+        {
+            res = 0; // Handle the error
+        }
+        finally
+        {
+            con.Close(); //סגירת החיבור
+        }
+
+    }
+
 }
