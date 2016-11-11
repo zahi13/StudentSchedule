@@ -1,14 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewChores.aspx.cs" Inherits="ViewChores" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .viewChoresTable {}
+    </style>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server">
-            <asp:Table ID="viewChoresTable" CssClass="viewChoresTable" runat="server">
+            <asp:Table ID="viewChoresTable" CssClass="viewChoresTable" runat="server" Width="100%">
             <asp:TableHeaderRow runat="server">
-                <asp:TableHeaderCell>מספר/שם מטלה</asp:TableHeaderCell>
-                <asp:TableHeaderCell>שם הקורס</asp:TableHeaderCell>
-                <asp:TableHeaderCell>תאריך הגשה</asp:TableHeaderCell>
-                <asp:TableHeaderCell>הוגש</asp:TableHeaderCell>
-                <asp:TableHeaderCell ID="grade">ציון</asp:TableHeaderCell>
+                <asp:TableHeaderCell Width="10%">מספר/שם מטלה</asp:TableHeaderCell>
+                <asp:TableHeaderCell Width="35%">שם הקורס</asp:TableHeaderCell>
+                <asp:TableHeaderCell Width="20%">תאריך הגשה</asp:TableHeaderCell>
+                <asp:TableHeaderCell Width="20%">הוגש</asp:TableHeaderCell>
+                <asp:TableHeaderCell Width="15%" ID="grade">ציון</asp:TableHeaderCell>
             </asp:TableHeaderRow>
         </asp:Table>
     <asp:Button ID="addChoreWindow" runat="server" Text="הוסף מטלה" OnClick="addChoreWindow_Click"/>
