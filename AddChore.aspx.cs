@@ -55,9 +55,13 @@ public partial class AddChore : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@studentID", s.studentID);
             cmd.Parameters.AddWithValue("@courseName", dd_courseName.Text);
             cmd.Parameters.AddWithValue("@dueDate", txb_dueDate.Text);
+
+            if (txb_submitted.Text == "")
+            {
+                txb_submitted.Text = null;
+            }
             cmd.Parameters.AddWithValue("@Submitted", txb_submitted.Text);
             cmd.Parameters.AddWithValue("@choreNum", txb_choreNum.Text);
-
             cmd.Parameters.AddWithValue("@grade", txb_grade.Text);
 
             int res = 0;
