@@ -16,13 +16,24 @@
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">סמסטר</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox runat="server" id="tbSemester" type="text" /></asp:TableCell>
+            <asp:TableCell runat="server">
+                <asp:DropDownList runat="server" id="ddl_Semester" AppendDataBoundItems="true">
+                    <asp:ListItem Text="א" Value="0"/>
+                    <asp:ListItem Text="ב" Value="1"/>
+                    <asp:ListItem Text="קיץ" Value="2"/>
+                </asp:DropDownList>
+            </asp:TableCell>         
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">שנה</asp:TableCell>
             <asp:TableCell runat="server">
-                <asp:DropDownList runat="server" id="dd_year" AppendDataBoundItems="true">
+                <asp:DropDownList runat="server" id="ddl_year" AppendDataBoundItems="true">
                     <asp:ListItem Text="תשע&quot;ז" Value="0"/>
+                    <asp:ListItem Text="תשע&quot;ח" Value="1"/>
+                    <asp:ListItem Text="תשע&quot;ט" Value="2"/>
+                    <asp:ListItem Text="תש&quot;פ" Value="3"/>
+                    <asp:ListItem Text="תשפ&quot;א" Value="4"/>
+                    <asp:ListItem Text="תשפ&quot;ב" Value="5"/>
                 </asp:DropDownList>
             </asp:TableCell>    
         </asp:TableRow>      

@@ -13,31 +13,7 @@ public partial class AddCourse : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            DataTable subjects = new DataTable();
-            using (
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString))
-            {
-                try
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT year FROM Year", con);
-                    adapter.Fill(subjects);
-                    dd_year.DataSource = subjects;
-                    dd_year.DataTextField = "year";
-                    dd_year.DataValueField = "year";
-                    dd_year.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    ; // Handle the error
-                }
-                finally
-                {
-                    con.Close(); //סגירת החיבור
-                }
-            }
-        }
+       
     }
 
     protected void submitCourses(object sender, EventArgs e)
@@ -59,8 +35,8 @@ public partial class AddCourse : System.Web.UI.Page
                                             @TeacherPhone)", con);
 
             cmd.Parameters.AddWithValue("@courseName", tbCourseName.Text);
-            cmd.Parameters.AddWithValue("@Semester", tbSemester.Text);
-            cmd.Parameters.AddWithValue("@Year", dd_year.Text);
+            cmd.Parameters.AddWithValue("@Semester", ddl_Semester.SelectedItem.Text);
+            cmd.Parameters.AddWithValue("@Year", ddl_year.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@TestA", tbTestA.Text);
             cmd.Parameters.AddWithValue("@TestB", tbTestB.Text);
             cmd.Parameters.AddWithValue("@TeacherName", tbTeacherName.Text);
@@ -101,9 +77,9 @@ public partial class AddCourse : System.Web.UI.Page
 
         if (tbCourseName.Text == "")
             flag = false;
-        if (tbSemester.Text == "")
+        if (ddl_Semester.Text == "")
             flag = false;
-        if (dd_year.Text == "")
+        if (ddl_year.Text == "")
             flag = false;
         if (tbTestA.Text == "")
             flag = false;

@@ -4,36 +4,41 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="Styles/main.css" rel="stylesheet" />
     <title></title>
 <style type="text/css">
-        #form1 {
-            width: auto;
-            margin-top: 84px;
-            text-align: center;
+    body {
+    background-color: rgb(237, 237, 237);
+    font-family: "Arial", Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+     #form1 {
+         width: auto;
+         margin-top: 84px;
+         text-align: center;
             
-        }
-       #login{
+     }
+    #login{
            
-            background: transparent\9;
-            background-size: 100%;
-            background-repeat: no-repeat;
-            font-weight: bold;
-            font-family: serif;
-            color: #0000BB;
+        background: transparent\9;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        font-weight: bold;
+        font-family: serif;
+        color: #0000BB;
             
 
-        }
-        #box{
-            border: 2px solid #CC0033;
-            width: 30%;
-            margin: auto;
-            right: 50%;
-            padding-top: 10px;
-            padding-bottom: 10px;
+    }
+    #box{
+        border: 2px solid #CC0033;
+        width: 30%;
+        margin: auto;
+        right: 50%;
+        padding-top: 10px;
+        padding-bottom: 10px;
             
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
      <form id="form1" runat="server">

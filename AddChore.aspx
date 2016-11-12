@@ -25,11 +25,11 @@
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">תאריך הגשה</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox runat="server" id="txb_dueDate" type="date" /></asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" id="txb_dueDate" type="date"/></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">הוגש</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox runat="server" id="txb_submitted" type="date" /></asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" id="txb_submitted" type="date"/></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server"> 
             <asp:TableCell runat="server">ציון</asp:TableCell>

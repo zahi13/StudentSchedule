@@ -5,20 +5,28 @@
         .viewChoresTable {}
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server" dir="rtl">
       <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                 <asp:Button ID="ViewAllChores" runat="server" Text="הצג את כל המטלות" OnClick="ViewAllChores_OnClick" />
-                <asp:Button ID="fewChores" runat="server" Text="מטלות אחרונות" OnClick="fewChores_OnClick" />
-                 <asp:GridView ID="viewChoresTable" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="choreID" OnRowDataBound="viewChoresTable_OnRowDataBound" >
+              <asp:Button ID="ViewAllChores" runat="server" Text="הצג את כל המטלות" OnClick="ViewAllChores_OnClick"/>
+              <asp:Button ID="fewChores" runat="server" Text="מטלות אחרונות" OnClick="fewChores_OnClick" />
+                <br/>
+                 <asp:GridView ID="viewChoresTable" style=" 
+                    margin:50px auto; 
+                    border-collapse: separate;
+                    background:#fff;
+                    border-radius:5px;
+                    margin:50px auto;
+                    box-shadow:0px 0px 5px rgba(0,0,0,0.3);" 
+                    runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="choreID" OnRowDataBound="viewChoresTable_OnRowDataBound" >
     
                <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                 <asp:BoundField DataField="choreNum" HeaderText="מס'/שם מטלה" ReadOnly="True" SortExpression="choreNum" />
                 <asp:BoundField DataField="courseName" HeaderText="שם הקורס" ReadOnly="True" SortExpression="courseName" />
-                <asp:BoundField DataField="dueDate" HeaderText="תאריך הגשה" SortExpression="dueDate" />
-                <asp:BoundField DataField="Submitted" HeaderText="הוגש" SortExpression="Submitted" />
+                <asp:BoundField DataField="dueDate" HeaderText="תאריך הגשה" SortExpression="dueDate" dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
+                <asp:BoundField DataField="Submitted" HeaderText="הוגש" SortExpression="Submitted" dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
                 <asp:BoundField DataField="grade" HeaderText="ציון" SortExpression="grade" />
               
                

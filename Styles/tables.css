@@ -11,13 +11,13 @@ body {
   background:#353a40;
 }
 
-table {
+/*table {
   border-collapse: separate;
   background:#fff;
   border-radius:5px;
   margin:50px auto;
   box-shadow:0px 0px 5px rgba(0,0,0,0.3);
-}
+}*/
 
 thead {
   border-radius:5px;

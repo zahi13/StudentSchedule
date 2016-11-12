@@ -56,10 +56,10 @@ public partial class AddChore : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@courseName", dd_courseName.Text);
             cmd.Parameters.AddWithValue("@dueDate", txb_dueDate.Text);
 
-            if (txb_submitted.Text == "")
-            {
-                txb_submitted.Text = null;
-            }
+            //if (txb_submitted.Text == "")
+            //{
+            //    txb_submitted.Text = "NULL";
+            //}
             cmd.Parameters.AddWithValue("@Submitted", txb_submitted.Text);
             cmd.Parameters.AddWithValue("@choreNum", txb_choreNum.Text);
             cmd.Parameters.AddWithValue("@grade", txb_grade.Text);
@@ -84,6 +84,9 @@ public partial class AddChore : System.Web.UI.Page
                 lbl_ChoreAdded.Text = "המטלה נוספה בהצלחה";
                 lbl_ChoreAdded.ForeColor = Color.Green;
                 ResetInputFields();
+
+                //Fixing Submitted date to NULL 
+                fixDatesToNullInDB();
             }
             else
             {
@@ -120,5 +123,28 @@ public partial class AddChore : System.Web.UI.Page
             return flag;
         }
         return flag;
+    }
+
+
+    void fixDatesToNullInDB()
+    {
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ScheduleDB"].ConnectionString);
+        SqlCommand cmd = new SqlCommand("UPDATE Chores SET Submitted = null WHERE Submitted = '1900-01-01'", con);
+
+        int res = 0;
+        try
+        {
+            con.Open(); //פתיחת חיבור בין האתר לבסיס נתונים
+            res = cmd.ExecuteNonQuery(); //ביצוע השאילתא וקליטת הערך לתוך משתנה        
+        }
+        catch (Exception ex)
+        {
+            res = 0; // Handle the error
+        }
+        finally
+        {
+            con.Close(); //סגירת החיבור
+        }
+
     }
 }

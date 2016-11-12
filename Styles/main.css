@@ -5,7 +5,6 @@ body {
     font-size: 12px;
 }
 
-
 /*Page*/
 .wrapper {
     width: 1000px;
@@ -116,6 +115,7 @@ label {
 }
 input {
     margin-top: 10px;
+	float: right;
 
 }
 
