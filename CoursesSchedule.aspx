@@ -106,17 +106,17 @@
 </script>
 <style>
 
-	body {
+	/*body {
 		margin-top: 40px;
 		text-align: center;
 		font-size: 14px;
 		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-	}
+	}*/
 		
-	#wrap {
+	/*#wrap {
 		width: 1100px;
 		margin: 0 auto;
-	}
+	}*/
 		
 	#external-events {
 		float: left;
@@ -151,7 +151,7 @@
 
 	#calendar {
         float: left;
-        width: 90%;
+        width: 100%;
 	}
 
 </style>    
@@ -185,7 +185,7 @@
 
 		<div id='calendar'></div>
 
-		<div style='clear:both'></div>
+		<div <%--style='clear:both'--%>></div>
 
 	</div>
 </body>
