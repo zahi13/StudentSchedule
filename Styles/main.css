@@ -18,7 +18,7 @@ body {
     background-color: #D1C4E9;
     border: 1px solid rgb(224, 224, 224);
     border-radius: 5px 5px 5px 5px;
-    float: left;
+    float: right;
     margin-top: 8px;
     margin-bottom: 8px;
     min-height: 400px;
@@ -153,4 +153,22 @@ input {
         background-color: #663399;
         color: white;
     }
+
+.Gridview {
+    right: 10%; 
+    bottom: 40%;
+}
+
+.addChorebtn {
+
+    margin-top: 20px;
+    right: 30%;
+    bottom: 20%;
+}
+
+.addChoreWindow {
+    margin-top: 20px;
+    right: 10%;
+    bottom: 10%;
+}
 

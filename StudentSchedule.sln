@@ -7,21 +7,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "StudentSchedule", ".", "{5D
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52762"
-		Debug.AspNetCompiler.PhysicalPath = "..\StudentSchedule\"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\StudentSchedule\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52762\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_52762"
-		Release.AspNetCompiler.PhysicalPath = "..\StudentSchedule\"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\StudentSchedule\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52762\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "52762"
-		SlnRelativePath = "..\StudentSchedule\"
 	EndProjectSection
 EndProject
 Global

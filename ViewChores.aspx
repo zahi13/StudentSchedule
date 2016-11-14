@@ -10,7 +10,7 @@
               <asp:Button ID="ViewAllChores" CssClass="button button1" runat="server" Text="הצג את כל המטלות" OnClick="ViewAllChores_OnClick"/></div>
               <div id ="viewLastChoresBtn"><asp:Button ID="fewChores" CssClass="button button1" runat="server" Text="מטלות אחרונות" OnClick="fewChores_OnClick" /></div>
                 <br/>
-                <div style="padding-right: 20%">
+                <div id="Gridview">
                  <asp:GridView ID="viewChoresTable" style=" 
                     float: right;
                     margin:20px; 
@@ -67,7 +67,7 @@
         </asp:SqlDataSource>
   </ContentTemplate>
 </asp:UpdatePanel>
-         <div style="padding-right:45%; padding-top: 32%; padding-bottom: 10%">   
+         <div id="addChorebtn">   
             <asp:Button class="button button1" ID="addChoreWindow" runat="server" Text="הוסף מטלה" OnClick="addChoreWindow_Click" />
          </div>
 </asp:Content>
