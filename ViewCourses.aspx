@@ -13,10 +13,11 @@
             border-radius:5px;
             margin:50px auto;
             box-shadow:0px 0px 5px rgba(0,0,0,0.3);"
-            runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="courseID">
+            runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="courseID" GridLines="Horizontal" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px">
+    
+            <AlternatingRowStyle BackColor="#F7F7F7" />
     
             <Columns>
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="CourseName" HeaderText="שם הקורס" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="semester" HeaderText="סמסטר" SortExpression="dueDate" />
             <asp:BoundField DataField="year" HeaderText="שנה אקדמית" SortExpression="year" />
@@ -25,18 +26,19 @@
             <asp:BoundField DataField="teacherName" HeaderText="שם המרצה" SortExpression="teacherName" />
             <asp:BoundField DataField="teacherEmail" HeaderText="אימייל מרצה" SortExpression="teacherEmail" />
             <asp:BoundField DataField="teacherPhone" HeaderText="טלפון מרצה" SortExpression="teacherPhone" />
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>    
                      
 
-            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FFF1D4" />
-            <SortedAscendingHeaderStyle BackColor="#B95C30" />
-            <SortedDescendingCellStyle BackColor="#F1E5CE" />
-            <SortedDescendingHeaderStyle BackColor="#93451F" />
+            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+            <HeaderStyle BackColor="#673AB7" Font-Bold="True" ForeColor="#F7F7F7" />
+            <PagerStyle ForeColor="#4A3C8C" HorizontalAlign="Right" BackColor="#E7E7FF" />
+            <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+            <SortedAscendingCellStyle BackColor="#F4F4FD" />
+            <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+            <SortedDescendingCellStyle BackColor="#D8D8F0" />
+            <SortedDescendingHeaderStyle BackColor="#3E3277" />
             </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" DeleteCommand="DELETE FROM [Courses] WHERE [courseID] = @courseID" 
             InsertCommand="INSERT INTO [Courses] ([courseID], [courseName], [semester], [year], [testA], [testB], [teacherName] [teacherEmail] [teacherPhone]) VALUES (@courseID, @courseName, @semester, @year, @testA, @testB, @teacherName @teacherEmail @teacherPhone)" 
@@ -69,5 +71,6 @@
         </asp:SqlDataSource>
       </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:Button ID="AddCourse" runat="server" Text="הוסף קורס" OnClick="AddCourse_OnClick"/>
+    <div id="addCourseButton" >
+    <asp:Button ID="AddCourse" class="button button1" runat="server" Text="הוסף קורס" OnClick="AddCourse_OnClick" /></div>
 </asp:Content>
