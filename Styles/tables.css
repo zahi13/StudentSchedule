@@ -28,7 +28,7 @@ thead {
         font-size: 16px;
         font-weight: 400;
         color: #fff;
-        text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 0px rgb(0,0,0);
         text-align: left;
         padding: 20px;
         background-image: linear-gradient(#646f7f, #4a5564);
@@ -47,7 +47,7 @@ thead {
 tbody tr td {
   font-family: 'Open Sans', sans-serif;
   font-weight:400;
-  color:#5f6062;
+  color:black;
   font-size:13px;
   padding:20px 20px 20px 20px;
   border-bottom:1px solid #e0e0e0;
@@ -78,6 +78,6 @@ tbody:hover > tr td {
 
 tbody:hover > tr:hover td {
   text-shadow:none;
-  color:#2d2d2d;
+  color:#000000;
   opacity:1.0;
 }

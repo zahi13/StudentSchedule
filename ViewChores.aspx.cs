@@ -114,11 +114,11 @@ protected void ViewAllChores_OnClick(object sender, EventArgs e)
             DataRowView drv = e.Row.DataItem as DataRowView;
             if (drv["Submitted"].ToString().Equals(""))
             {
-                e.Row.BackColor = System.Drawing.Color.Red;
+                e.Row.BackColor = System.Drawing.Color.DarkSalmon;
             }
             else
             {
-                e.Row.BackColor = System.Drawing.Color.Green;
+                e.Row.BackColor = System.Drawing.Color.PaleGreen;
             }
         }
     }
