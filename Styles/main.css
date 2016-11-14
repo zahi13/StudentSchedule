@@ -32,12 +32,15 @@ body {
 }
 
 .menu {
-    height: 50px;
+    /*height: 50px;*/
     background-color:dimgray;
-    width: 100%;
-    margin: 0px 0px 10px;
-    padding: 0px;
+    /*width: 100%;*/
+    /*margin: 0px 0px 10px;*/
+    /*padding: 0px;*/
+	padding-right: 300px;
     height: 40px;
+	text-align: center;
+
     color: rgb(243, 243, 243);
     border-radius: 5px 5px 5px 5px;
 }
@@ -132,7 +135,7 @@ input {
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
-            display: inline;
+    display: inline;
     font-size: 16px;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s; /* Safari */
@@ -146,7 +149,7 @@ input {
     border: 2px solid  #9370db;
 }
 
-    .button1:hover {
+.button1:hover {
         background-color: #663399;
         color: white;
     }

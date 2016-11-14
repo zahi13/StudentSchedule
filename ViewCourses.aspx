@@ -71,6 +71,6 @@
         </asp:SqlDataSource>
       </ContentTemplate>
     </asp:UpdatePanel>
-    <div id="addCourseButton" >
+    <div style="padding-right: 45%; padding-bottom: 10%;" >
     <asp:Button ID="AddCourse" class="button button1" runat="server" Text="הוסף קורס" OnClick="AddCourse_OnClick" /></div>
 </asp:Content>

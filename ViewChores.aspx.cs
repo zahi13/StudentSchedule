@@ -46,7 +46,7 @@ public partial class ViewChores : System.Web.UI.Page
 
 protected void ViewAllChores_OnClick(object sender, EventArgs e)
 {
-    throw new NotImplementedException();
+
 }
 
     protected void viewChoresTable_OnRowDataBound(object sender, GridViewRowEventArgs e)
@@ -125,7 +125,6 @@ protected void ViewAllChores_OnClick(object sender, EventArgs e)
 
     protected void fewChores_OnClick(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
     }
 
 
