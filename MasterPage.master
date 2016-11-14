@@ -19,8 +19,7 @@
                         <li class="navigation_first_item"><a href="ViewChores.aspx">לוח מטלות</a></li>
                         <li><a href="ViewCourses.aspx">טבלת קורסים</a></li>
                         <li><a href="CoursesSchedule.aspx">מערכת שעות</a></li>
-
-         
+                        <li><a href="AboutPage.aspx">אודות </a></li>
                     </ul>
                 </div>
                 <div class="clear">></div>
