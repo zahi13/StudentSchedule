@@ -15,7 +15,7 @@
                  <asp:GridView ID="viewChoresTable"     
                     style="width: 100%; 
                     overflow:auto; margin:15px; border-collapse: separate; background: #BDBDBD; border-radius:5px; box-shadow:0px 0px 5px rgb(0,0,0);" 
-                    runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="choreID" OnRowDataBound="viewChoresTable_OnRowDataBound" CellPadding="5" ForeColor="#333333" GridLines="None" >
+                    runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="choreID" OnRowDataBound="viewChoresTable_OnRowDataBound" CellPadding="5" ForeColor="#333333" GridLines="None" >
                  <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <EditRowStyle CssClass="GridViewEditRow" /> 
                <Columns>
@@ -58,26 +58,6 @@
                      <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                  </asp:GridView>
                     </div>
-
-                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" 
-                     SelectCommand="SELECT * FROM Chores" 
-                     InsertCommand="INSERT INTO Chores VALUES (@choreID, @studentID, @courseName, @dueDate, @Submitted, @grade, @choreNum)" 
-                     UpdateCommand="UPDATE Chores SET Submitted = @Submitted, grade = @grade, choreNum = @choreNum WHERE choreID = @choreID"
-                     DeleteCommand="DELETE FROM Chores WHERE choreID = @choreID" >
-            <DeleteParameters>
-                <asp:Parameter Name="studentID" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="Submitted" Type="DateTime" />
-                <asp:Parameter Name="grade" Type="Int32" />
-                <asp:Parameter Name="choreNum" Type="String" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Submitted" Type="DateTime" />
-                <asp:Parameter Name="grade" Type="Int32" />
-                <asp:Parameter Name="choreNum" Type="String" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
   </ContentTemplate>
 </asp:UpdatePanel>
          <div id="addChorebtn" style ="padding:10px; width: 15%; right: 10%; position: relative; bottom: 5%;" dir="rtl">   

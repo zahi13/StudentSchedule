@@ -86,8 +86,8 @@ public partial class ViewCourses : System.Web.UI.Page
     //        tr.Cells.Add(tbTeacherPhone);
 
     //        ViewCoursesTable.Rows.Add(tr);
-        }
-    //}
+       // }
+    }
 
     protected void AddCourse_OnClick(object sender, EventArgs e)
     {
