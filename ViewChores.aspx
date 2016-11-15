@@ -17,9 +17,11 @@
                     border-collapse: separate; background: #BDBDBD;
                     border-radius:10px;
                     box-shadow:0px 0px 5px rgb(0,0,0);" 
-                    runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="choreID" OnRowDataBound="viewChoresTable_OnRowDataBound" CellPadding="5" ForeColor="#333333" GridLines="None" >
+                    runat="server" 
+                     AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="choreID" OnRowDataBound="viewChoresTable_OnRowDataBound" CellPadding="5" ForeColor="#333333" GridLines="None" >
                  <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-    
+    <%--                     DataSourceID="SqlDataSource1" --%>
+
                <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                 <asp:BoundField DataField="grade" HeaderText="ציון" SortExpression="grade" />
@@ -27,7 +29,7 @@
                 <asp:BoundField DataField="dueDate" HeaderText="תאריך הגשה" SortExpression="dueDate" dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
                 <asp:BoundField DataField="courseName" HeaderText="שם הקורס" ReadOnly="True" SortExpression="courseName" />
                 <asp:BoundField DataField="choreNum" HeaderText="מס'/שם מטלה" ReadOnly="True" SortExpression="choreNum" />
-              
+
                 </Columns>    
                      <EditRowStyle BackColor="#999999" />
                      <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -42,7 +44,7 @@
                  </asp:GridView>
                     </div>
 
-                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" DeleteCommand="DELETE FROM [Chores] WHERE [choreID] = @choreID" 
+<%--                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" DeleteCommand="DELETE FROM [Chores] WHERE [choreID] = @choreID" 
                      InsertCommand="INSERT INTO [chores] ([choreID], [studentID], [courseName], [dueDate], [Submitted], [grade], [choreNum]) VALUES (@choreID, @studentID, @courseName, @dueDate, @Submitted, @grade, @choreNum)" 
                      SelectCommand="SELECT * FROM [Chores]" UpdateCommand="UPDATE [Chores] SET [choreID]=@choreID, [studentID] = @studentID, [courseName] = @courseName, [dueDate] = @dueDate, [Submitted] = @Submitted, [grade] = @grade, [choreNum] = @choreNum WHERE [choreID] = @choreID">
             <DeleteParameters>
@@ -64,10 +66,10 @@
                 <asp:Parameter Name="grade" Type="Int32" />
                 <asp:Parameter Name="choreNum" Type="String" />
             </UpdateParameters>
-        </asp:SqlDataSource>
+        </asp:SqlDataSource>--%>
   </ContentTemplate>
 </asp:UpdatePanel>
-         <div id="addChorebtn">   
+         <div id="addChorebtn" style="padding-top: 400px; padding-right: 30%; margin-bottom: 5%">   
             <asp:Button class="button button1" ID="addChoreWindow" runat="server" Text="הוסף מטלה" OnClick="addChoreWindow_Click" />
          </div>
 </asp:Content>

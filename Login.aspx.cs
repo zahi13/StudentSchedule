@@ -24,6 +24,7 @@ public partial class Login : System.Web.UI.Page
         else if (s.password == tb_password.Text)
         {
             Session["user"] = s;
+            Session["studentID"] = s.studentID;
             Response.Redirect("~/ViewChores.aspx");
         }
         else

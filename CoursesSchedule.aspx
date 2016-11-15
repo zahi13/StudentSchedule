@@ -12,115 +12,56 @@
 
 <script>
 
-	$(document).ready(function() {
-
+    $(document).ready(function () {
 
 	    /* initialize the external events
         -----------------------------------------------------------------*/
-
-	    $('#external-events .fc-event')
-	        .each(function() {
-
-	            // store data so the calendar knows to render an event upon drop
-	            $(this)
-	                .data('event',
+	    $('#external-events .fc-event').each(function() {
+            // store data so the calendar knows to render an event upon drop
+	            $(this).data('event',
 	                {
 	                    title: $.trim($(this).text()), // use the element's text as the event title
 	                    stick: true // maintain when user navigates (see docs on the renderEvent method)
 	                });
+	    });
 
-	            // make the event draggable using jQuery UI
-	            $(this)
-	                .draggable({
-	                    zIndex: 999,
-	                    revert: true, // will cause the event to go back to its
-	                    revertDuration: 0 //  original position after the drag
-	                });
-
-	        });
 
 
 	    /* initialize the calendar
         -----------------------------------------------------------------*/
-
-	        $('#calendar').fullCalendar({
-	                header: {
-	                    left: 'prev,next today',
-	                    center: 'title',
-	                    right: 'month,agendaWeek,agendaDay'
-	                },
-	                editable: true,
-	                droppable: true, // this allows things to be dropped onto the calendar
-	                navLinks: true, // can click day/week names to navigate views
-	                eventLimit: true, // allow "more" link when too many events
-	                events: { url: '/json/events.json' },  // Reads events from JSON file
-	                //events: { 'Request.RequestContext.HttpContext.Session["CoursesTime"]' }, // Reads events from JSON file
-	                //events: { session["CoursesTime"] },  // Reads events from JSON file
-	        
-	            
-
-			//drop: function() {
-			//	// is the "remove after drop" checkbox checked?
-			//	if ($('#drop-remove').is(':checked')) {
-			//		// if so, remove the element from the "Draggable Events" list
-			//		$(this).remove();
-			//	}
-			//},
-
-	        //eventDrop: function(event, delta, revertFunc) {
-	        //    alert(event.title + " was dropped on " + event.start.format());
-	        //    if (!confirm("Are you sure about this change?")) {
-	        //        revertFunc();
-	        //    }
-
-	        //    var saveit = $('#calendar').fullCalendar('clientEvents');
-	        //    var eventsholded = []; //JSON.parse(sessionStorage.getItem('CoursesTime'));
-
-	        //    $.each(saveit, function (index, value) {
-	        //        var event = new Object();
-	        //        event.id = value.id;
-	        //        event.start = value.start;
-	        //        event.end = value.end;
-	        //        event.title = value.title;
-	        //        event.allDay = value.allDay
-	        //        eventsholded.push(event);
-	        //    });
-	        //    $.ajax
-            //        ({
-            //            type: "GET",
-            //            dataType: 'json',
-            //            async: false,
-            //            url: '/json/test.json',
-            //            data: { data: JSON.stringify(eventsholded) },
-            //            success: function () {
-            //                alert("Thanks!");
-
-            //                alert(eventsholded[0].start.format() + " " + eventsholded[0].end.format());
-            //            },
-            //            failure: function () { alert("Error!"); }
-            //        });
-            //}
-		});
+        var studentID = '<%= Session["studentID"] %>';
+	    var url = "testWebService.asmx/getJSON";
+	    $.ajax({
+	        type: "POST",
+	        url: url,
+	        contentType: "application/json; charset=utf-8",
+	        dataType: "json",
+	        data: JSON.stringify( {studentID: studentID}),
+	        success: function (data) {
+	            $('#calendar').fullCalendar({
+	                    header: {
+	                        left: 'prev,next today',
+	                        center: 'title',
+	                        right: 'month,agendaWeek,agendaDay'
+	                    },
+	                    editable: true,
+	                    droppable: true, // this allows things to be dropped onto the calendar
+	                    navLinks: true, // can click day/week names to navigate views
+	                    eventLimit: true, // allow "more" link when too many events
+	                    events: JSON.parse(data.d), // Reads events from JSON file
+	            });
+	        },
+	        error: function () {
+	            alert("ERROR AJAX");
+	        }
+	    });
 	});
 
 </script>
 <style>
-
-	/*body {
-		margin-top: 40px;
-		text-align: center;
-		font-size: 14px;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-	}*/
-		
-	/*#wrap {
-		width: 1100px;
-		margin: 0 auto;
-	}*/
 		
 	#external-events {
 		float: left;
-		/*width: 150px;*/
 		padding: 0 10px;
 		border: 1px solid #ccc;
 		background: #eee;
@@ -184,6 +125,7 @@
 		<div id='calendar'></div>
 
 		<div <%--style='clear:both'--%>></div>
+        <input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session["User"]" />
 
 	</div>
 </body>

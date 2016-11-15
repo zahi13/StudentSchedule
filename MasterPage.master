@@ -15,7 +15,7 @@
         <form id="form1" runat="server">
             <div class="wrapper">
                 <div class="menu">
-                    <ul style="padding-left: 70px;">
+                    <ul>
                         <li class="navigation_first_item"><a href="ViewChores.aspx">לוח מטלות</a></li>
                         <li><a href="ViewCourses.aspx">טבלת קורסים</a></li>
                         <li><a href="CoursesSchedule.aspx">מערכת שעות</a></li>
