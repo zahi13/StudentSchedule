@@ -10,7 +10,8 @@
               <asp:Button ID="ViewAllChores" CssClass="button button1" runat="server" Text="הצג את כל המטלות" OnClick="ViewAllChores_OnClick"/></div>
               <div id ="viewLastChoresBtn"><asp:Button ID="fewChores" CssClass="button button1" runat="server" Text="מטלות אחרונות" OnClick="fewChores_OnClick" /></div>
                 <br/>
-                <div id="Gridview">
+
+                <div id="Gridview" style ="padding:15px; width:80%" dir="rtl">
                  <asp:GridView ID="viewChoresTable" style=" 
                     float: right;
                     margin:20px; 
@@ -24,9 +25,9 @@
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                 <asp:BoundField DataField="grade" HeaderText="ציון" SortExpression="grade" />
                 <asp:BoundField DataField="Submitted" HeaderText="הוגש" SortExpression="Submitted" dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
-                <asp:BoundField DataField="dueDate" HeaderText="תאריך הגשה" SortExpression="dueDate" dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
-                <asp:BoundField DataField="courseName" HeaderText="שם הקורס" ReadOnly="True" SortExpression="courseName" />
-                <asp:BoundField DataField="choreNum" HeaderText="מס'/שם מטלה" ReadOnly="True" SortExpression="choreNum" />
+                <asp:BoundField DataField="dueDate" HeaderText="תאריך הגשה" ReadOnly="True" SortExpression="dueDate" dataformatstring="{0:MMMM d, yyyy}" htmlencode="false"/>
+                <asp:BoundField DataField="courseName" HeaderText="שם הקורס" ReadOnly="True" SortExpression="courseName"/>
+                <asp:BoundField DataField="choreNum" HeaderText="מס'/שם מטלה" SortExpression="choreNum"/>
               
                 </Columns>    
                      <EditRowStyle BackColor="#999999" />
@@ -42,24 +43,20 @@
                  </asp:GridView>
                     </div>
 
-                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" DeleteCommand="DELETE FROM [Chores] WHERE [choreID] = @choreID" 
-                     InsertCommand="INSERT INTO [chores] ([choreID], [studentID], [courseName], [dueDate], [Submitted], [grade], [choreNum]) VALUES (@choreID, @studentID, @courseName, @dueDate, @Submitted, @grade, @choreNum)" 
-                     SelectCommand="SELECT * FROM [Chores]" UpdateCommand="UPDATE [Chores] SET [choreID]=@choreID, [studentID] = @studentID, [courseName] = @courseName, [dueDate] = @dueDate, [Submitted] = @Submitted, [grade] = @grade, [choreNum] = @choreNum WHERE [choreID] = @choreID">
+                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" 
+                     SelectCommand="SELECT * FROM Chores" 
+                     InsertCommand="INSERT INTO Chores VALUES (@choreID, @studentID, @courseName, @dueDate, @Submitted, @grade, @choreNum)" 
+                     UpdateCommand="UPDATE Chores SET Submitted = @Submitted, grade = @grade, choreNum = @choreNum WHERE choreID = @choreID"
+                     DeleteCommand="DELETE FROM Chores WHERE choreID = @choreID" >
             <DeleteParameters>
                 <asp:Parameter Name="studentID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="studentID" Type="Int32" />
-                <asp:Parameter Name="courseName" Type="String" />
-                <asp:Parameter Name="dueDate" Type="DateTime" />
                 <asp:Parameter Name="Submitted" Type="DateTime" />
                 <asp:Parameter Name="grade" Type="Int32" />
                 <asp:Parameter Name="choreNum" Type="String" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="studentID" Type="Int32" />
-                <asp:Parameter Name="courseName" Type="String" />
-                <asp:Parameter Name="dueDate" Type="DateTime" />
                 <asp:Parameter Name="Submitted" Type="DateTime" />
                 <asp:Parameter Name="grade" Type="Int32" />
                 <asp:Parameter Name="choreNum" Type="String" />
@@ -67,7 +64,7 @@
         </asp:SqlDataSource>
   </ContentTemplate>
 </asp:UpdatePanel>
-         <div id="addChorebtn">   
+         <div id="addChorebtn" style ="padding:10px; width: 15%; right: 10%; position: fixed;" >   
             <asp:Button class="button button1" ID="addChoreWindow" runat="server" Text="הוסף מטלה" OnClick="addChoreWindow_Click" />
          </div>
 </asp:Content>

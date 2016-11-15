@@ -19,8 +19,8 @@
     
             <Columns>
             <asp:BoundField DataField="CourseName" HeaderText="שם הקורס" ReadOnly="True" SortExpression="id" />
-            <asp:BoundField DataField="semester" HeaderText="סמסטר" SortExpression="dueDate" />
-            <asp:BoundField DataField="year" HeaderText="שנה אקדמית" SortExpression="year" />
+            <asp:BoundField DataField="semester" HeaderText="סמסטר" SortExpression="dueDate" ReadOnly="True" />
+            <asp:BoundField DataField="year" HeaderText="שנה אקדמית" SortExpression="year" ReadOnly="True"/>
             <asp:BoundField DataField="testA" HeaderText="מועד א" SortExpression="testA"  dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
             <asp:BoundField DataField="testB" HeaderText="מועד ב" SortExpression="testB"  dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
             <asp:BoundField DataField="teacherName" HeaderText="שם המרצה" SortExpression="teacherName" />
@@ -40,17 +40,15 @@
             <SortedDescendingCellStyle BackColor="#D8D8F0" />
             <SortedDescendingHeaderStyle BackColor="#3E3277" />
             </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" DeleteCommand="DELETE FROM [Courses] WHERE [courseID] = @courseID" 
-            InsertCommand="INSERT INTO [Courses] ([courseID], [courseName], [semester], [year], [testA], [testB], [teacherName] [teacherEmail] [teacherPhone]) VALUES (@courseID, @courseName, @semester, @year, @testA, @testB, @teacherName @teacherEmail @teacherPhone)" 
-            SelectCommand="SELECT * FROM [Courses]" UpdateCommand="UPDATE [Courses] SET [courseID]=@courseID, [courseName] = @courseName, [semester] = @semester, [year] = @year, [testA] = @testA, [testB] = @testB, [teacherName] = @teacherName, [teacherEmail] = @teacherEmail, [teacherPhone] = @teacherPhone WHERE [courseID] = @courseID">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" 
+            SelectCommand="SELECT * FROM Courses" 
+            InsertCommand="INSERT INTO Courses VALUES (@courseID, @courseName, @semester, @year, @testA, @testB, @teacherName @teacherEmail @teacherPhone)" 
+            UpdateCommand="UPDATE Courses SET testA = @testA, testB = @testB, teacherName= @teacherName, teacherEmail = @teacherEmail, teacherPhone = @teacherPhone WHERE courseID = @courseID"
+            DeleteCommand="DELETE FROM Courses WHERE courseID = @courseID" >
             <DeleteParameters>
               <asp:Parameter Name="courseID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="courseID" Type="Int32" />
-                <asp:Parameter Name="courseName" Type="String" />
-                <asp:Parameter Name="semester" Type="String" />
-                <asp:Parameter Name="year" Type="String" />
                 <asp:Parameter Name="testA" Type="DateTime" />
                 <asp:Parameter Name="testB" Type="DateTime" />
                 <asp:Parameter Name="teacherName" Type="String" />
@@ -58,10 +56,6 @@
                 <asp:Parameter Name="teacherPhone" Type="String" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="courseID" Type="Int32" />
-                <asp:Parameter Name="courseName" Type="String" />
-                <asp:Parameter Name="semester" Type="String" />
-                <asp:Parameter Name="year" Type="String" />
                 <asp:Parameter Name="testA" Type="DateTime" />
                 <asp:Parameter Name="testB" Type="DateTime" />
                 <asp:Parameter Name="teacherName" Type="String" />
