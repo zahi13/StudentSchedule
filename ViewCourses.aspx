@@ -5,28 +5,45 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" Runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-      <ContentTemplate>              
-        <asp:GridView ID="viewChoresTable"  dir="rtl" style=" 
-           margin:50px auto; 
+      <ContentTemplate>   
+          <div id="coursesGridview" style="width:100%; overflow:auto" dir="rtl">         
+        <asp:GridView ID="viewChoresTable"  dir="rtl" posotion="relative" 
+            style="width: 100%; 
+            overflow:auto;
+            margin:50px auto; 
             border-collapse: separate;
             background:#fff;
             border-radius:5px;
             margin:50px auto;
             box-shadow:0px 0px 5px rgba(0,0,0,0.3);"
-            runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="courseID" GridLines="Horizontal" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px">
-    
+            runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="courseID" GridLines="Horizontal" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px">   
             <AlternatingRowStyle BackColor="#F7F7F7" />
     
             <Columns>
             <asp:BoundField DataField="CourseName" HeaderText="שם הקורס" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="semester" HeaderText="סמסטר" SortExpression="dueDate" ReadOnly="True" />
             <asp:BoundField DataField="year" HeaderText="שנה אקדמית" SortExpression="year" ReadOnly="True"/>
-            <asp:BoundField DataField="testA" HeaderText="מועד א" SortExpression="testA"  dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
-            <asp:BoundField DataField="testB" HeaderText="מועד ב" SortExpression="testB"  dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" />
-            <asp:BoundField DataField="teacherName" HeaderText="שם המרצה" SortExpression="teacherName" />
-            <asp:BoundField DataField="teacherEmail" HeaderText="אימייל מרצה" SortExpression="teacherEmail" />
-            <asp:BoundField DataField="teacherPhone" HeaderText="טלפון מרצה" SortExpression="teacherPhone" />
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:BoundField DataField="testA" HeaderText="מועד א" SortExpression="testA"  dataformatstring="{0:MMMM d, yyyy}" htmlencode="false"><ControlStyle Width="130"/></asp:BoundField>
+            <asp:BoundField DataField="testB" HeaderText="מועד ב" SortExpression="testB"  dataformatstring="{0:MMMM d, yyyy}" htmlencode="false" ><ControlStyle Width="130"/></asp:BoundField>
+            <asp:BoundField DataField="teacherName" HeaderText="שם המרצה" SortExpression="teacherName" ><ControlStyle Width="130"/></asp:BoundField>
+            <asp:BoundField DataField="teacherEmail" HeaderText="אימייל מרצה" SortExpression="teacherEmail" ><ControlStyle Width="130"/></asp:BoundField>
+            <asp:BoundField DataField="teacherPhone" HeaderText="טלפון מרצה" SortExpression="teacherPhone" ><ControlStyle Width="100"/></asp:BoundField>
+                <asp:TemplateField ShowHeader="False">
+                    <EditItemTemplate>
+                        <asp:LinkButton ID="LinkButtonUpdate2" runat="server" CausesValidation="True" CommandName="Update" Text="עדכן"></asp:LinkButton>
+                        &nbsp;<asp:LinkButton ID="LinkButtonCancel2" runat="server" CausesValidation="False" CommandName="Cancel" Text="ביטול"></asp:LinkButton>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButtonEdit2" runat="server" CausesValidation="False" CommandName="Edit" Text="ערוך"></asp:LinkButton>
+                    </ItemTemplate>
+                    <ItemStyle width="10px"> </ItemStyle> 
+                </asp:TemplateField>
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>    
+                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="מחק" OnClientClick="return confirm('האם אתה בטוח שברצונך למחוק את השורה?'); "></asp:LinkButton>
+                    </ItemTemplate>
+                          
+                </asp:TemplateField>
             </Columns>    
                      
 
@@ -40,6 +57,7 @@
             <SortedDescendingCellStyle BackColor="#D8D8F0" />
             <SortedDescendingHeaderStyle BackColor="#3E3277" />
             </asp:GridView>
+              </div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ScheduleDB %>" 
             SelectCommand="SELECT * FROM Courses" 
             InsertCommand="INSERT INTO Courses VALUES (@courseID, @courseName, @semester, @year, @testA, @testB, @teacherName @teacherEmail @teacherPhone)" 
