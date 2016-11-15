@@ -105,7 +105,7 @@
 <body>
     <div id="menu">
         <asp:Button ID="addCourseWindow" CssClass="button button1" runat="server" Text="הוסף שיעור" OnClick="addCourseWindow_Click"/>
-        <asp:Button ID="removeCourseWindow" CssClass="button button1" runat="server" Text="הסר שיעור" OnClick="removeCourseWindow_Click"/>
+<%--        <asp:Button ID="removeCourseWindow" CssClass="button button1" runat="server" Text="הסר שיעור" OnClick="removeCourseWindow_Click"/>--%>
     </div>
 	<div id='wrap'>
 <%--		<div id='external-events'>
