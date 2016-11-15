@@ -11,7 +11,7 @@
               <div id ="viewLastChoresBtn"><asp:Button ID="fewChores" CssClass="button button1" runat="server" Text="מטלות אחרונות" OnClick="fewChores_OnClick" /></div>
                 <br/>
 
-                <div id="Gridview" style ="padding:5px; width:90%; overflow:auto" dir="rtl" >
+                <div id="Gridview" style ="padding:5px; width:90%;" dir="rtl" >
                  <asp:GridView ID="viewChoresTable"     
                     style="width: 100%; 
                     overflow:auto; margin:15px; border-collapse: separate; background: #BDBDBD; border-radius:5px; box-shadow:0px 0px 5px rgb(0,0,0);" 
